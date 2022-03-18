@@ -1,0 +1,29 @@
+PROCEDURE tri(var t:ARRAY_OF INTEGER,x:INTEGER)
+VAR
+    i,j,temp:INTEGER;
+BEGIN
+    FOR i FROM 1 TO x-1 STEP 1  DO
+        temp:=t[i];
+        j:=i;
+        WHILE (j>0) AND(t[j-1]>temp) DO
+            t[j]:=t[j-1];
+            j:=j-1;
+        END_WHILE
+        t[j]:=temp;
+    END_FOR
+END
+
+ALGORITHM tri_insertion
+
+VAR
+   tab: ARRAY_OF INTEGER[];
+   n:INTEGER;
+   i:INTEGER;
+BEGIN
+   Write("Saisie la taille du tableau");
+   Read(n);
+   FOR i FROM 0 TO n-1 STEP 1  DO
+       Read(tab[i]);
+   END_FOR
+   tri(tab,n);
+END
